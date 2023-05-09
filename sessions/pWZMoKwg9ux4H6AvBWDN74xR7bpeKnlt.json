@@ -1,1 +1,10 @@
-{"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"user":"admin","__lastAccess":1683585760036}
+{
+  "cookie": {
+    "originalMaxAge": null,
+    "expires": null,
+    "httpOnly": true,
+    "path": "/"
+  },
+  "user": "admin",
+  "__lastAccess": 1683585760036
+}
