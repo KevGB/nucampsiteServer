@@ -16,6 +16,7 @@ partnerRouter
       .catch((err) => next(err));
   })
   .post(authenticate.verifyUser, (req, res, next) => {
+    // .post(authenticate.verifyAdmin, (req, res, next) => {
     Partner.create(req.body)
       .then((partner) => {
         console.log("Partner Created", partner);
@@ -30,6 +31,7 @@ partnerRouter
     res.end("PUT operation not supported on /partners");
   })
   .delete(authenticate.verifyUser, (req, res, next) => {
+    // .delete(authenticate.verifyAdmin, (req, res, next) => {
     Partner.deleteMany()
       .then((partners) => {
         res.statusCode = 200;
@@ -57,6 +59,7 @@ partnerRouter
     );
   })
   .put(authenticate.verifyUser, (req, res, next) => {
+    // .put(authenticate.verifyAdmin, (req, res, next) => {
     Partner.findByIdAndUpdate(req.params.partnerId, req.body, { new: true })
       .then((partner) => {
         res.statusCode = 200;
@@ -66,6 +69,7 @@ partnerRouter
       .catch((err) => next(err));
   })
   .delete(authenticate.verifyUser, (req, res, next) => {
+    // .delete(authenticate.verifyAdmin, (req, res, next) => {
     Partner.findByIdAndDelete(req.params.partnerId)
       .then((response) => {
         res.statusCode = 200;
