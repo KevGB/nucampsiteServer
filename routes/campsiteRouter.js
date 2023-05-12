@@ -219,7 +219,8 @@ campsiteRouter
   .delete(authenticate.verifyUser, (req, res, next) => {
     Campsite.findById(req.params.campsiteId)
       .then((campsite) => {
-        if (req.user._id === req.params.author) { //added
+        if (req.user._id === req.params.author) {
+          //added
           if (campsite && campsite.comments.id(req.params.commentId)) {
             campsite.comments.id(req.params.commentId).remove();
             campsite
@@ -239,7 +240,7 @@ campsiteRouter
             err.status = 404;
             return next(err);
           }
-        } 
+        }
         // else {
         //   err = new Error("You are not authorized to delete this comment");
         //   err.status = 403;
