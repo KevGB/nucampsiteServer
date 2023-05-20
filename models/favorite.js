@@ -1,19 +1,22 @@
 const mongoose = require("mongoose");
-const passportLocalMongoose = require("passport-local-mongoose");
 const Schema = mongoose.Schema;
 
-const favoriteSchema = new Schema({
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
+const favoriteSchema = new Schema(
+  {
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+    campsites: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Campsite",
+      },
+    ],
   },
-  campsites: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Campsite",
-  }],
-
-});
-
-favoriteSchema.plugin(passportLocalMongoose);
+  {
+    timestamps: true,
+  }
+);
 
 module.exports = mongoose.model("Favorite", favoriteSchema);
