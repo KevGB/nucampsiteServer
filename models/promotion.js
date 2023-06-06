@@ -8,28 +8,28 @@ const promotionSchema = new Schema(
     name: {
       type: String,
       required: true,
-      unique: true
+      unique: true,
     },
     image: {
       type: String,
-      required: true
+      required: true,
     },
     featured: {
       type: Boolean,
-      default: false
+      default: false,
     },
     cost: {
       type: Currency,
       required: true,
-      min: 0
+      min: 0,
     },
     description: {
       type: String,
-      required: true
+      required: true,
     },
   },
   {
-    timestamps: true
+    timestamps: true,
   }
 );
 
